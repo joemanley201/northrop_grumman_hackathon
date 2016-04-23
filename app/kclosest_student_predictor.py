@@ -1,4 +1,3 @@
-__author__ = 'Srinivas Avireddy'
 import pandas as pd
 from collections import defaultdict
 
@@ -37,7 +36,8 @@ def find_euclidean_distance(student1, student2):
     return euclidean_distance
 
 
-def find_kclosest_student_grades(student_mean_vector,course_id,data,k):
+def find_kclosest_student_grades(student_mean_vector,course_id,k):
+    data = pd.read_csv('../data/data.csv')
     euclidean_distances = []
     k_closest_grades = []
     for student_vector in student_mean_vector[1:]:
@@ -49,16 +49,10 @@ def find_kclosest_student_grades(student_mean_vector,course_id,data,k):
         if ((data.student_id == id) & (data.course_id == course_id)).any():
             if k > 0:
                 filtered_row = data[(data.student_id == id) & (data.course_id == course_id)]
-                #print filtered_row
                 k_closest_grades.append(filtered_row["grade"].iloc[0])
                 k = k - 1
             else:
                 break
-    #print k_closest_grades
     return k_closest_grades
 
 
-data = read_student_csv()
-student_mean_vector = find_all_mean_vectors(65)
-#print student_mean_vector
-print find_kclosest_student_grades(student_mean_vector,"CSE1",data,5)
