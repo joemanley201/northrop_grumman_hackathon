@@ -13,4 +13,9 @@ body > .container {
 	height: 1000px;
 	padding-left: 20px;
 	padding-right: 20px;
+	overflow: auto;
+}
+
+div span.glyphicon-chevron-up {
+    color: green;
 }
