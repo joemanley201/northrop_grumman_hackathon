@@ -10,7 +10,8 @@ CONST_OUTPUT_FILE_NAME = "../data/data.csv"
 output_file_csv = open(CONST_OUTPUT_FILE_NAME, "w")
 
 course_list = ['CSE1', 'CSE2', 'CSE3', 'CSE4', 'CSE5', 'CSE6', 'CSE7', 'CSE8', 'CSE9', 'CSE10', 'CSE11', 'CSE12', 'CSE13', 'CSE14', 'CSE15', 'CSE16', 'CSE17', 'CSE18', 'CSE19', 'CSE20']
-
+csv_header = "course_id,student_id,class_participation,attendance,calibration,assignments,midterm,final,weekly_hours_1,weekly_hours_2,weekly_hours_3,weekly_hours_4,weekly_hours_5,grade"
+output_file_csv.write(csv_header + "\n")
 for course in course_list:
     np.random.seed(seed = int(filter(str.isdigit, course)))
 
