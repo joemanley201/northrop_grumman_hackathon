@@ -26,9 +26,11 @@ def generate_recommendation():
         grade.append(request.form["expectedGrade[" + str(i) + "]"])
         closest_grades = find_kclosest_student_grades(student_mean_vector,course_list[i],5)
         closest_grades_list.append(closest_grades)
-    metric_list,increase_list,course_list = generate_stats_recommendation(student_id, row_counter, course_list,grade)
-    print closest_grades_list
-    return render_template('reco_display.html', result = "'" +  re.escape(json.dumps({"metric_list": metric_list, "increase_list": increase_list, "course_list": course_list,"closest_grades_list":closest_grades_list})) + "'")
+    metric_list,current_student_list,original_list = generate_stats_recommendation(student_id, row_counter, course_list,grade)
+    print metric_list
+    print current_student_list
+    print original_list
+    return render_template('reco_display.html', result = "'" +  re.escape(json.dumps({"metric_list": metric_list, "current_student_list": current_student_list, "course_list": course_list,"closest_grades_list":closest_grades_list,"original_list":original_list})) + "'")
 
 if __name__ == '__main__':
     app.run(debug=True)
