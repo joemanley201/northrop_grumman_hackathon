@@ -19,12 +19,30 @@ function populateTable() {
 }
 
 function drawCircles(placeholder, courseName, index) {
+  console.log(placeholder)
+  var grades = courses[index].closestGrades;
+  console.log(grades);
+  var dataset = [];
+  var gradeDict = {};
+  for (var idx = 0, lengthh = grades.length; idx < lengthh; idx++) {
+    currGrade = grades[idx]
+    if (!gradeDict[currGrade]) {
+      gradeDict[currGrade] = 0
+    }
+    gradeDict[currGrade] += 1
+  }
+
+  for (var grade in gradeDict) {
+    if (gradeDict.hasOwnProperty(grade)) {
+      dataset.push({label: grade, xPos: 0, value: 200 * gradeDict[grade]})
+    }
+  }
   var h = 500;
   var w = 900;
   var minimumBubbleSize = 10;
   var labelsWithinBubbles = true;
   var title = "Relative Grades of Similar Students";
-  var dataset = [{
+  /*var dataset = [{
     label: "Mercury",
     value: 1134,
     xPos: 0
@@ -56,7 +74,7 @@ function drawCircles(placeholder, courseName, index) {
     label: "Saturn",
     value: 1134,
     xPos: 0
-  }];
+  }];*/
   var gapBetweenBubbles = 15;
   var xPadding = 50;
   var yPadding = 100;
@@ -104,6 +122,7 @@ function drawCircles(placeholder, courseName, index) {
     .append("svg")
     .attr("width", w)
     .attr("height", h)
+    .attr("class", "d3js")
 
   /* Adjust left hand side to add on the radius of the first bubble */
   xPaddingPlusRadius = xPadding + rScale(dataset[0].value);
@@ -196,6 +215,9 @@ function drawCircles(placeholder, courseName, index) {
 
 function populateResponse(response) {
   for (var i = 0, course_length = response.course_list.length; i < course_length; i++) {
+    if (response.metric_list[i].length == 0) {
+      continue;
+    }
     var currData = {};
     currData.closestGrades = response.closest_grades_list[i];
     currData.currentScores = response.current_student_list[i];
@@ -214,8 +236,8 @@ function getData(idx) {
   return data;
 }
 
-function drawChart(courseName, placeholder) {
-  var data = google.visualization.arrayToDataTable(getData(placeholder.split("_")[1]));
+function drawChart(courseName, placeholder, idx) {
+  var data = google.visualization.arrayToDataTable(getData(idx));
 
   var options = {
     width: 900,
@@ -234,6 +256,7 @@ function drawChart(courseName, placeholder) {
     bars: 'horizontal'
   };
   var material = new google.charts.Bar(document.getElementById(placeholder));
+  console.log(placeholder)
   material.draw(data, options);
 }
 
@@ -244,15 +267,14 @@ $(document).ready(function() {
   google.charts.load('current', {
     packages: ['corechart', 'bar']
   });
-  for (var idx = 0, lengthh = courses.length; idx < lengthh;) {
+  for (var idx = 0, lengthh = courses.length; idx < lengthh; idx++) {
     var data = courses;
     (function(idx) {
       google.charts.setOnLoadCallback(function() {
-        drawChart(data[idx].courseName, "chart_" + (idx));
+        drawChart(data[idx].courseName, "chart_" + (idx * 2), idx);
       });
-      drawCircles("chart_" + (idx + 1), data[idx].courseName, idx);
+      drawCircles("chart_" + ((2*idx) + 1), data[idx].courseName, idx);
     })(idx);
-    idx += 2;
   }
 
 
