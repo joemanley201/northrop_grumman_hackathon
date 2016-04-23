@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
     background-image: url("../images/body_background.jpg");
     background-size: auto;
     height: 100%;
     background-repeat: repeat-x;
+    font-family: Roboto;
 }
 .jumbotron {
 	background-color: #fff;
