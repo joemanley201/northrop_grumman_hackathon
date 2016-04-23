@@ -17,7 +17,7 @@ def generate_stats_recommendation(student_id,row_counter,course_list,grade):
         original = []
         metric = []
         current_student = []
-        data_courselist = data[(data.course_id == str(course_list[i])) & (data.grade == grade[i])]
+        data_courselist = data[(data.course_id == str(course_list[i])) & (data.grade == str(grade[i]))]
 
         if data_courselist['class_participation'].mean() > data_student['class_participation'].mean():
             metric.append('Class Participation')
