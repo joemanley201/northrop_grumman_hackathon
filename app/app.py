@@ -23,21 +23,7 @@ def index():
 
 @app.route('/display_plot',methods=['POST'])
 def display_plot():
-    if True:
-        fig = plt.figure()
-        ax = fig.add_subplot(1, 1, 1)
-        xs = np.linspace(-10, 10, 1000)
-        ax.plot(xs, np.sin(xs), label='sin(x)')
-        ax.plot(xs, np.cos(xs), label='cos(x)')
-        ax.legend()
-
-        io = StringIO()
-        fig.savefig(io, format='png')
-        data = io.getvalue().encode('base64')
-        return html.format(data)
-
     data = pd.read_csv('../data/data.csv')
-
     student_id = 1
     course_list = [11,12,13]
     grade = ['A+','A+','A+']
