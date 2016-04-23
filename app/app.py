@@ -9,8 +9,8 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/display_plot',methods=['POST'])
-def display_plot():
+@app.route('/generate_recommendation',methods=['POST'])
+def generate_recommendation():
     student_id = request.form["studentID"]
     row_counter = request.form["rowCounter"]
     course_list = []
@@ -73,6 +73,6 @@ def display_plot():
             metric_list.append('Weekly hours 5')
             increase_list.append(data_courselist['weekly_hours_5'].mean() - data_student['weekly_hours_5'].mean())
 
-    return render_template('reco_display.html',metrics = metric_list,change = increase_list)
+    return render_template('reco_display.html',metrics = metric_list,change = increase_list,course = course_list)
 if __name__ == '__main__':
     app.run(debug=True)
