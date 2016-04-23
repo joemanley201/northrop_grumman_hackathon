@@ -1,10 +1,10 @@
 __author__ = 'Srinivas Avireddy'
 
-data_file = open("../data/data.csv","r")
+data_file = open("../data/abc.csv","r")
 file_records = data_file.readlines()
 header = file_records[0]
 student_records = file_records[1:]
-update_file = open("../data/data.csv","w")
+update_file = open("../data/data_final.csv","w")
 update_file.write(header)
 
 for record in student_records:
