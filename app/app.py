@@ -13,6 +13,12 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/testAjax', methods=['POST', 'GET'])
+def test_ajax():
+    a = request.args.getlist('a')
+    print a
+    return "Hello"
+
 @app.route('/generate_recommendation',methods=['POST'])
 def generate_recommendation():
     student_id = request.form["studentID"]

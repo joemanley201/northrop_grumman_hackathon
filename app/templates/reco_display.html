@@ -10,7 +10,6 @@
         var response = JSON.parse({{result}})
         {% endautoescape  %}
 
-
     </script>
 </head>
 <body>
@@ -23,6 +22,9 @@
     <hr>
     <table class="table table-responsive" id="analysisTable">
     </table>
+    <div class="btn btn-info btn-lg" id="test1">
+        Test
+    </div>
 
 </div>
 <script src="{{ url_for('static', filename='js/jquery-2.2.1.min.js') }}"></script>
