@@ -20,32 +20,32 @@ def generate_stats_recommendation(student_id,row_counter,course_list,grade):
         data_courselist = data[(data.course_id == str(course_list[i])) & (data.grade == str(grade[i]))]
 
         if data_courselist['class_participation'].mean() > data_student['class_participation'].mean():
-            metric.append('Class Participation')
+            metric.append('Class Participation 10%')
             original.append(data_courselist['class_participation'].mean())
             current_student.append(data_student['class_participation'].mean())
 
         if data_courselist['attendance'].mean() > data_student['attendance'].mean():
-            metric.append('Attendance')
+            metric.append('Attendance 5%')
             original.append(data_courselist['attendance'].mean())
             current_student.append(data_student['attendance'].mean())
 
         if data_courselist['calibration'].mean() > data_student['calibration'].mean():
-            metric.append('Calibration')
+            metric.append('Calibration 2%')
             original.append(data_courselist['calibration'].mean())
             current_student.append(data_student['calibration'].mean())
 
         if data_courselist['assignments'].mean() > data_student['assignments'].mean():
-            metric.append('Assignments')
+            metric.append('Assignments 30%')
             original.append(data_courselist['assignments'].mean())
             current_student.append(data_student['assignments'].mean())
 
         if data_courselist['midterm'].mean() > data_student['midterm'].mean():
-            metric.append('midterm')
+            metric.append('midterm 23%')
             original.append(data_courselist['midterm'].mean())
             current_student.append(data_student['midterm'].mean())
 
         if data_courselist['final'].mean() > data_student['final'].mean():
-            metric.append('Final')
+            metric.append('Final 30%')
             original.append(data_courselist['final'].mean())
             current_student.append(data_student['final'].mean())
 
