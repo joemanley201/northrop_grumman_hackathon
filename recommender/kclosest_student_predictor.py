@@ -1,4 +1,3 @@
-__author__ = 'Srinivas Avireddy'
 import pandas as pd
 
 def find_mean_vector(student_id):
