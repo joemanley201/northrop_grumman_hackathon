@@ -24,8 +24,8 @@ def generate_recommendation():
         course_list.append(request.form["courseID[" + str(i) + "]"])
         grade.append(request.form["expectedGrade[" + str(i) + "]"])
 
-    metric_list,increase_list,course_list = generate_stats_recommendation(student_id,row_counter,course_list,grade)
+    metric_list,increase_list,course_list = generate_stats_recommendation(student_id, row_counter, course_list,grade)
 
-    return render_template('reco_display.html',metrics = metric_list,change = increase_list,course = course_list)
+    return render_template('reco_display.html', metrics = metric_list, change = increase_list, course = course_list, student_id = student_id)
 if __name__ == '__main__':
     app.run(debug=True)
