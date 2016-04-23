@@ -10,6 +10,10 @@
         var response = JSON.parse({{result}})
         {% endautoescape  %}
 
+
+
+
+
     </script>
 </head>
 <body>
@@ -20,14 +24,30 @@
         <center><h1>Hey there, find our analysis here:</h1></center>
     </div>
     <hr>
+
+
     <table class="table table-responsive" id="analysisTable">
+        <tr>
+            <td class="col-lg-8">
+                <div id="chart_1">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="col-lg-8">
+                <div id="chart_2">
+                </div>
+            </td>
+        </tr>
     </table>
-    <div class="btn btn-info btn-lg" id="test1">
-        Test
-    </div>
+
 
 </div>
 <script src="{{ url_for('static', filename='js/jquery-2.2.1.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/reco_display.js') }}"></script>
+<script src="{{ url_for('static', filename='js/underscore-min.js') }}"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 </body>
 </html>
