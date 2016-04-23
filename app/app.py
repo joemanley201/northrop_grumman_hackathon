@@ -24,27 +24,20 @@ def index():
 @app.route('/display_plot',methods=['POST'])
 def display_plot():
     student_id = request.form["studentID"]
-    print "Helloooo"
     row_counter = request.form["rowCounter"]
-
-    user_course_list = []
-    user_grade_list = []
+    course_list = []
+    grade = []
 
     for i in range(int(row_counter) + 1):
-        user_course_list.append(request.form["courseID[" + row_counter + "]"])
-        user_grade_list.append(request.form["expectedGrade[" + row_counter + "]"])
-
-    print user_course_list
-    print user_grade_list
+        course_list.append(request.form["courseID[" + str(i) + "]"])
+        grade.append(request.form["expectedGrade[" + str(i) + "]"])
 
     data = pd.read_csv('../data/data.csv')
 
-    course_list = [11,12,13]
-    grade = ['A+','A+','A+']
-    data_student =  data.loc[data['student_id'] == 1]
+    data_student =  data.loc[data['student_id'] == int(student_id)]
     for i in range(len(course_list)):
-        print 'CSE' + str(course_list[i])
-        data_courselist = data[(data.course_id == 'CSE' + str(course_list[i])) & (data.grade == grade[i])]
+        print str(course_list[i])
+        data_courselist = data[(data.course_id == str(course_list[i])) & (data.grade == grade[i])]
         print 'Your scores need to increase by the following %'
         if data_courselist['class_participation'].mean() > data_student['class_participation'].mean():
             print 'Class Participation',data_courselist['class_participation'].mean() - data_student['class_participation'].mean()
@@ -79,6 +72,7 @@ def display_plot():
         if data_courselist['weekly_hours_5'].mean() > data_student['weekly_hours_5'].mean():
             print 'Weekly hours 5',data_courselist['weekly_hours_5'].mean() - data_student['weekly_hours_5'].mean()
         print "\n"
+
     return "Joe"
 if __name__ == '__main__':
     app.run(debug=True)
