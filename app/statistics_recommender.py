@@ -8,9 +8,6 @@ def generate_stats_recommendation(student_id,row_counter,course_list,grade):
 
     metric_list = []
     increase_list = []
-    for i in range(int(row_counter) + 1):
-        course_list.append(request.form["courseID[" + str(i) + "]"])
-        grade.append(request.form["expectedGrade[" + str(i) + "]"])
 
     data = pd.read_csv('../data/data.csv')
 
