@@ -29,7 +29,7 @@ for record in student_records:
         letter_grade = "C"
     elif grade >= 55.0:
         letter_grade = "C-"
-    elif grade >= 50.0:
+    elif grade >= 45.0:
         letter_grade = "D"
     else:
         letter_grade = "F"
