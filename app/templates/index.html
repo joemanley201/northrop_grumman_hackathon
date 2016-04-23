@@ -1,24 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>SavvyTriton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
 </head>
 <body>
-
-<div class="container">
-  <div class="jumbotron">
-    <h1>Click to see the plot</h1>
-    <p></p>
-      <form action="/display_plot" method="Post">
-         <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-  </div>
+<div class="jumbotron">
+    <div class="container">
+        <center><h1>Hail King Triton, Savvy ?</h1></center>
+    </div>
 </div>
 
+<div class="container">
+    <hr>
+    <div class="row">
+        <div class="col-lg-3 pull-right">
+            <input type="text" id="studentID" placeholder="Student ID" required="true"
+                   class="form-control input-lg"/>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3 pull-right">
+            <button class="btn btn-info pull-right" id="addCourse" type="button">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Add Course
+            </button>
+        </div>
+    </div>
+    <hr>
+    <form class="form-horizontal" id="courseSelectionForm" action="/display_plot" method="Post">
+        <div class="form-group">
+            <table class="table table-responsive" id="courseTable">
+                <tr>
+                    <th class="col-lg-2">
+                        Course ID
+                    </th>
+                    <th class="col-lg-2">
+                        Expected Grade
+                    </th>
+                </tr>
+                <tr class="dataRows" id="row_1">
+                    <td class="col-lg-2">
+                        <select class="form-control" id="courseID_1" name="courseID">
+                            <option value="CSE 1" selected="selected">CSE 1</option>
+                            <option value="CSE 2" selected="selected">CSE 2</option>
+                            <option value="CSE 3" selected="selected">CSE 3</option>
+                            <option value="CSE 4" selected="selected">CSE 4</option>
+                            <option value="CSE 5" selected="selected">CSE 5</option>
+                            <option value="CSE 6" selected="selected">CSE 6</option>
+                            <option value="CSE 7" selected="selected">CSE 7</option>
+                            <option value="CSE 8" selected="selected">CSE 8</option>
+                            <option value="CSE 9" selected="selected">CSE 9</option>
+                            <option value="CSE 10" selected="selected">CSE 10</option>
+                            <option value="CSE 11" selected="selected">CSE 11</option>
+                            <option value="CSE 12" selected="selected">CSE 12</option>
+                            <option value="CSE 13" selected="selected">CSE 13</option>
+                            <option value="CSE 14" selected="selected">CSE 14</option>
+                            <option value="CSE 15" selected="selected">CSE 15</option>
+                            <option value="CSE 16" selected="selected">CSE 16</option>
+                            <option value="CSE 17" selected="selected">CSE 17</option>
+                            <option value="CSE 18" selected="selected">CSE 18</option>
+                            <option value="CSE 19" selected="selected">CSE 19</option>
+                            <option value="CSE 20" selected="selected">CSE 20</option>
+                        </select>
+                    </td>
+                    <td class="col-lg-2">
+                        <select class="form-control" id="expectedGrade_2" name="expectedGrade">
+                            <option value="A+" selected="selected">A+</option>
+                            <option value="A" selected="selected">A</option>
+                            <option value="A-" selected="selected">A-</option>
+                            <option value="B+" selected="selected">B+</option>
+                            <option value="B" selected="selected">B</option>
+                            <option value="B-" selected="selected">B-</option>
+                            <option value="C+" selected="selected">C+</option>
+                            <option value="C" selected="selected">C</option>
+                            <option value="C-" selected="selected">C-</option>
+                            <option value="D" selected="selected">D</option>
+                            <option value="F" selected="selected">F</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-lg-3 pull-right">
+            <button class="btn btn-success pull-right" id="submitForm" type="button">
+                Submit Courses
+            </button>
+        </div>
+    </div>
+</div>
+<br><br>
+<script src="{{ url_for('static', filename='js/jquery-2.2.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
