@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <title>SavvyTriton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet" media="screen">
 </head>
 <body>
-{{ metrics }}
-<h1>Hello world</h1>
-{{change}}
-<h1>Hello world</h1>
-{{course}}
+
+<div class="container">
+    {{ metrics }}
+
+    {{change}}
+
+    {{course}}
+</div>
+<script src="{{ url_for('static', filename='js/jquery-2.2.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
