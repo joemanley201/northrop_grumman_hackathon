@@ -7,16 +7,15 @@ body {
     background-repeat: repeat-x;
     font-family: Roboto;
 }
-.jumbotron {
-	background-color: #fff;
-	border-bottom: #000 10px solid;
-	padding-bottom: 0px;
-	margin-bottom: 0px;
-}
+
 body > .container {
 	background-color: #fff;
-	height: 800px;
-	border-radius: 5px;
+	height: 1000px;
 	padding-left: 20px;
 	padding-right: 20px;
+	overflow: auto;
+}
+
+div span.glyphicon-chevron-up {
+    color: green;
 }
