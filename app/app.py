@@ -23,8 +23,22 @@ def index():
 
 @app.route('/display_plot',methods=['POST'])
 def display_plot():
+    student_id = request.form["studentID"]
+    print "Helloooo"
+    row_counter = request.form["rowCounter"]
+
+    user_course_list = []
+    user_grade_list = []
+
+    for i in range(int(row_counter) + 1):
+        user_course_list.append(request.form["courseID[" + row_counter + "]"])
+        user_grade_list.append(request.form["expectedGrade[" + row_counter + "]"])
+
+    print user_course_list
+    print user_grade_list
+
     data = pd.read_csv('../data/data.csv')
-    student_id = 1
+
     course_list = [11,12,13]
     grade = ['A+','A+','A+']
     data_student =  data.loc[data['student_id'] == 1]
@@ -65,6 +79,6 @@ def display_plot():
         if data_courselist['weekly_hours_5'].mean() > data_student['weekly_hours_5'].mean():
             print 'Weekly hours 5',data_courselist['weekly_hours_5'].mean() - data_student['weekly_hours_5'].mean()
         print "\n"
-
+    return "Joe"
 if __name__ == '__main__':
     app.run(debug=True)

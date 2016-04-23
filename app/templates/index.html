@@ -16,13 +16,6 @@
     <hr>
     <div class="row">
         <div class="col-lg-3 pull-right">
-            <input type="text" id="studentID" placeholder="Student ID" required="true"
-                   class="form-control input-lg"/>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-lg-3 pull-right">
             <button class="btn btn-info pull-right" id="addCourse" type="button">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 Add Course
@@ -30,7 +23,16 @@
         </div>
     </div>
     <hr>
-    <form class="form-horizontal" id="courseSelectionForm" action="/display_plot" method="Post">
+    <form class="form-horizontal" id="courseSelectionForm" action="/display_plot" method="Post"
+          name="courseSelectionForm">
+        <input type="hidden" name="rowCounter" value="0" id="hiddenRowCounter">
+        <div class="row">
+            <div class="col-lg-3 pull-right">
+                <input type="text" id="studentID" placeholder="Student ID" required="true"
+                       class="form-control input-lg" name="studentID"/>
+            </div>
+        </div>
+        <hr>
         <div class="form-group">
             <table class="table table-responsive" id="courseTable">
                 <tr>
@@ -41,33 +43,33 @@
                         Expected Grade
                     </th>
                 </tr>
-                <tr class="dataRows" id="row_1">
+                <tr class="dataRows" id="row_0">
                     <td class="col-lg-2">
-                        <select class="form-control" id="courseID_1" name="courseID">
-                            <option value="CSE 1" selected="selected">CSE 1</option>
-                            <option value="CSE 2" selected="selected">CSE 2</option>
-                            <option value="CSE 3" selected="selected">CSE 3</option>
-                            <option value="CSE 4" selected="selected">CSE 4</option>
-                            <option value="CSE 5" selected="selected">CSE 5</option>
-                            <option value="CSE 6" selected="selected">CSE 6</option>
-                            <option value="CSE 7" selected="selected">CSE 7</option>
-                            <option value="CSE 8" selected="selected">CSE 8</option>
-                            <option value="CSE 9" selected="selected">CSE 9</option>
-                            <option value="CSE 10" selected="selected">CSE 10</option>
-                            <option value="CSE 11" selected="selected">CSE 11</option>
-                            <option value="CSE 12" selected="selected">CSE 12</option>
-                            <option value="CSE 13" selected="selected">CSE 13</option>
-                            <option value="CSE 14" selected="selected">CSE 14</option>
-                            <option value="CSE 15" selected="selected">CSE 15</option>
-                            <option value="CSE 16" selected="selected">CSE 16</option>
-                            <option value="CSE 17" selected="selected">CSE 17</option>
-                            <option value="CSE 18" selected="selected">CSE 18</option>
-                            <option value="CSE 19" selected="selected">CSE 19</option>
-                            <option value="CSE 20" selected="selected">CSE 20</option>
+                        <select class="form-control" id="courseID_0" name="courseID[0]">
+                            <option value="CSE1" selected="selected">CSE 1</option>
+                            <option value="CSE2" selected="selected">CSE 2</option>
+                            <option value="CSE3" selected="selected">CSE 3</option>
+                            <option value="CSE4" selected="selected">CSE 4</option>
+                            <option value="CSE5" selected="selected">CSE 5</option>
+                            <option value="CSE6" selected="selected">CSE 6</option>
+                            <option value="CSE7" selected="selected">CSE 7</option>
+                            <option value="CSE8" selected="selected">CSE 8</option>
+                            <option value="CSE9" selected="selected">CSE 9</option>
+                            <option value="CSE10" selected="selected">CSE 10</option>
+                            <option value="CSE11" selected="selected">CSE 11</option>
+                            <option value="CSE12" selected="selected">CSE 12</option>
+                            <option value="CSE13" selected="selected">CSE 13</option>
+                            <option value="CSE14" selected="selected">CSE 14</option>
+                            <option value="CSE15" selected="selected">CSE 15</option>
+                            <option value="CSE16" selected="selected">CSE 16</option>
+                            <option value="CSE17" selected="selected">CSE 17</option>
+                            <option value="CSE18" selected="selected">CSE 18</option>
+                            <option value="CSE19" selected="selected">CSE 19</option>
+                            <option value="CSE20" selected="selected">CSE 20</option>
                         </select>
                     </td>
                     <td class="col-lg-2">
-                        <select class="form-control" id="expectedGrade_2" name="expectedGrade">
+                        <select class="form-control" id="expectedGrade_0" name="expectedGrade[0]">
                             <option value="A+" selected="selected">A+</option>
                             <option value="A" selected="selected">A</option>
                             <option value="A-" selected="selected">A-</option>
