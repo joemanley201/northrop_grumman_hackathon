@@ -28,9 +28,9 @@ def generate_recommendation():
     closest_grades_list = []
     student_mean_vector = find_all_mean_vectors(65)
     for i in range(int(row_counter) + 1):
-        course_list.append(request.form["courseID[" + str(i) + "]"])
-        grade.append(request.form["expectedGrade[" + str(i) + "]"])
-        closest_grades = find_kclosest_student_grades(student_mean_vector,course_list[i],5)
+        course_list.append(request.form["courseID[" + str(i) + "]"]);
+        grade.append(request.form["expectedGrade[" + str(i) + "]"]);
+        closest_grades = find_kclosest_student_grades(student_mean_vector,course_list[i], 20);
         closest_grades_list.append(closest_grades)
     metric_list,current_student_list,original_list = generate_stats_recommendation(student_id, row_counter, course_list,grade)
     print metric_list

@@ -11,9 +11,6 @@
         {% endautoescape  %}
 
 
-
-
-
     </script>
 </head>
 <body>
@@ -40,12 +37,15 @@
             </td>
         </tr>
     </table>
+    <div id="circle">
+    </div>
 
 
 </div>
 <script src="{{ url_for('static', filename='js/jquery-2.2.1.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/reco_display.js') }}"></script>
 <script src="{{ url_for('static', filename='js/underscore-min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/d3.v3.min.js') }}"></script>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
