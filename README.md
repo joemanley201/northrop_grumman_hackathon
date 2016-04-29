@@ -1,6 +1,6 @@
 # Northrop Grumman Code Triton Challenge
 # TritonSmart
-This was done as part of the above codeathon over 18 Hours.
+This was done as part of the above codeathon over 18 Hours. We won the **third** place in this competition.
 ### Inspiration
 Having worked as a Teaching Assistant for a number of courses, our team (Ramkishore, Srinivas, Lenord, Sriram and Joe) thought about utilizing the huge amout of data gathered during the quarter for each course. By data we mean the marks obtained for sections like Calibration Quizes, Class Participation, Attendance, Assignments, Midterms and Final, etc. We can also utilize the details logged by the student for spending time on Assingments, Individual Study, Discussion Sessions, Office Hours and Lab Hours.
 
