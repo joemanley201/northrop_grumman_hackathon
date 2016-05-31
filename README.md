@@ -16,9 +16,13 @@ and so on.
 The system also tells the user, what grade he might get based on his current performance. This is achieved through clustering of the past data for that course.
 
 ### How we built it
+We cleaned the data to get necessary features for the clustering models. The backend was a Flask server from Python and the frontend was Vanilla JS with google charts for Visualization.
 
 ### Challenges we ran into
+We did not have any real data that we could have used directly. So we had to generate data on our with proper distribution to get the correct data.
 
 ### Accomplishments that we are proud of
+We did not have any prior preparations or idea before the hackathon. We came together at the Hackathon, discussed a lot of ideas, picked this idea, worked overnight to get it implemented. We also bagged the third prize. 
 
 ### What's next for TritonSmart
+Take it to the next level by putting it into real time use.
